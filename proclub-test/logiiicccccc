@@ -1,0 +1,12 @@
+a=1
+b=4
+arr=[1,4,2,3,2,7,1,2,3]
+
+for nx in range(0,len(arr)-1):
+    arrlength=0
+    cn=nx
+    while (arr[cn]>=a) and (arr[cn]<=b) and (cn<=8):
+        if (arr[cn]>=a) and (arr[cn]<=b):
+            arrlength=arrlength+1
+            cn=cn+arr[cn]
+        print(arrlength)

@@ -1,0 +1,25 @@
+t=input()
+t=int(t)
+for tx in range(0,t-1):
+    nab=input().split(" ")
+    n=int(nab[0])
+    a=int(nab[1])
+    b=int(nab[2])
+    arr=list(map(int,input().split(" ")))
+    length=[]
+    length.insert(tx,0)
+    for cn in range(1,n):
+        nx=cn
+        arrlength=0
+        while (arr[nx]>=a) and (arr[nx]<=b) and (nx<n):
+            print(nx)
+            arrlength=arrlength+1
+            nx=nx+arr[nx]
+        print(cn)
+        if length[tx]<=arrlength:
+            length[tx]=arrlength
+for tx in range(1,t):
+    print("Case",end="")
+    print(tx,end="")
+    print(": ",end="")
+    print(length[tx])

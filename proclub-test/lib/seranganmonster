@@ -1,0 +1,40 @@
+hp=input().split(" ")
+player=int(hp[0])
+enemy=int(hp[1])
+n=int(input())
+action=""
+while (action !="run") and (player > 0) and (enemy > 0):
+    aksi = input().split(" ")
+    action = aksi[0]
+    n= n % 2
+    effect=int(aksi[1])
+    if n==1: #USER
+        if action=="attack":
+            tipe=aksi[2]
+            if tipe=="critical":
+                effect=2*effect
+            elif tipe=="dodged":
+                effect=0
+            enemy=enemy-effect
+        elif action=="heal":
+            player=player+effect
+    else: #ENEMY
+        if action == "attack":
+            tipe = aksi[2]
+            if tipe == "critical":
+                effect = 2 * effect
+            elif tipe == "dodged":
+                effect = 0
+            player = player - effect
+        elif action == "heal":
+            enemy = enemy + effect
+    n=n+1
+if player<=0:
+    print("MATI ",end="")
+else:
+    print(player,end="")
+    print(" ",end="")
+if enemy<=0:
+    print("MATI")
+else:
+    print(enemy)
